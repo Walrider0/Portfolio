@@ -4,6 +4,38 @@ body{
     background-color: black
 }
 
+
+.head-content{
+    margin-top: 15%;
+    margin-left: 5%;
+    margin-right: 15%;
+    color: whitesmoke;
+
+    >h1 {
+        font-family: monserrat;
+        font-size: 100px;
+    }
+    >p {
+        font-family: monserrat;
+        font-size: 20px;
+    }
+}
+
+
+.mid-content {
+    margin-top: 5%;
+    background-color: rgb(110, 77, 77);
+    color: whitesmoke;
+    padding: 1em;
+
+    >p {
+        font-size: 20px;
+        margin-left: 5%;
+        margin-top: 5%;
+    }
+}
+
+
 .grid {
     display: flex;
     align-items: center;
@@ -22,21 +54,37 @@ body{
     position: relative;
 }
 
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+
+}
+
 .card::after, .card::before{
     content: '';
     position: absolute;
     height: 100%;
     width: 100%;
-    background-image: conic-gradient(orange, rgb(210, 41, 41), green, blue, orange);
-    /*background-image: conic-gradient(transparent 70%, blue);  Is another example for the border*/
+    /*background-image: conic-gradient(from var(--angle), transparent 70%, rgb(210, 41, 41), green, blue, orange);*/
+    background-image: conic-gradient(from var(--angle), transparent 70%, orange, blue, red, white);  /*Is another example for the border*/
     top: 50%;
     left: 50%;
     translate: -50% -50%;
     z-index: -1;
     padding: 3px;
     border-radius: 10px;
+    animation: 3s spin linear infinite;
 }
 .card::before {
     filter: blur(1.5rem);
     opacity: 0.8;
+}
+@keyframes spin{
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
 }
