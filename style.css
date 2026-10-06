@@ -12,6 +12,9 @@
 :root {
     --dark-forest: radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.35) 0%, rgba(120, 160, 255, 0.15) 12%, transparent 40%), #03000c;
     --dark-chrome: linear-gradient(rgba(112, 112, 131, 0.274) 0%, rgba(66, 51, 51, 0.116));
+    --dark-blue: linear-gradient(to bottom, #1e3a8a 40%, #0f1b3d, #000000);
+    --dark-orange: linear-gradient(to bottom, #9a3412 40%, #431a07, #000000);
+    --dark-white: linear-gradient(to bottom, #9ca3af 40%, #374151, #000000);
 }
 
 body{
@@ -60,22 +63,30 @@ body{
     > h1 {
         grid-column: 1 / -1;
         font-size: 30px;
-        text-align: center;
+        text-align: start;
         margin-top: 5px;
-        margin-top: 2%;
     }
 }
        
 }
 
 .interest-card {
+    position: relative;
     background: linear-gradient(rgba(112, 112, 131, 0.274) 0%, rgba(66, 51, 51, 0.116));
     height: 300px;
     width: 200px;
     padding: 2em;
     border-radius: 15px;
 }
-
+.interest-card.blue {
+    background: var(--dark-blue);
+}
+.interest-card.orange {
+    background: var(--dark-orange);
+}
+.interest-card.white {
+    background: var(--dark-white);
+}
 /* TODO: Kártya világítás ! */
 
 
@@ -104,6 +115,18 @@ body{
 
 
 
+.interest-card::before, .interest-card::after{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 3px; 
+    background: green;
+}
 
 @keyframes spinning {
     0% {
