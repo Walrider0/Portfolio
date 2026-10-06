@@ -9,15 +9,16 @@
 
 */
 
+:root {
+    --dark-forest: radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.35) 0%, rgba(120, 160, 255, 0.15) 12%, transparent 40%), #03000c;
+    --dark-chrome: linear-gradient(rgba(112, 112, 131, 0.274) 0%, rgba(66, 51, 51, 0.116));
+}
+
 body{
     margin: 0;
     padding: 0;
-    background:
-    radial-gradient(circle at 100% 0%,
-      rgba(255, 255, 255, 0.35) 0%,
-      rgba(120, 160, 255, 0.15) 12%,
-      transparent 40%),
-    #03000c;}
+    background: var(--dark-forest);
+}
 
 @supports (animation-timeline: view()) {
 
@@ -25,6 +26,7 @@ body{
     display: grid;
     height: 90vh;
     margin-left: 5%;
+    margin-top: 5%;
     color: whitesmoke;
     >h1 {
         font-family: monserrat;
@@ -37,48 +39,44 @@ body{
 
     animation-duration: 4s;
     animation-name: appear;
-    animation-timeline: view();
+    /* animation-timeline: view(); */
     
 }
 
 .mid-content {
     display: grid;
-    grid-auto-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
     justify-items: center;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    grid-auto-flow: column;
+    align-items: start;
+    gap: 1em;
 
-    background: linear-gradient( rgba(112, 112, 131, 0.274) 0%, rgba(66, 51, 51, 0.116));
+    background: var(--dark-chrome);
     color: whitesmoke;
     padding: 2vh;
-    max-height: 100vh;
     width: 90%;
     margin-left: 5%;
     border-radius: 15px;
-    gap: 1em;
 
-    >h1 {
+    > h1 {
+        grid-column: 1 / -1;
         font-size: 30px;
-        margin-bottom: 1%;
-        position: fixed;
-    }
-
-    >p {
-        font-size: 20px;      
+        text-align: center;
+        margin-top: 5px;
+        margin-top: 2%;
     }
 }
-        /* TODO : Csinálj egy külön gridet a címnek meg a kártyáknak VÉGEM */
+       
 }
 
 .interest-card {
+    background: linear-gradient(rgba(112, 112, 131, 0.274) 0%, rgba(66, 51, 51, 0.116));
     height: 300px;
     width: 200px;
     padding: 2em;
+    border-radius: 15px;
 }
 
-
+/* TODO: Kártya világítás ! */
 
 
 
